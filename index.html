@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teklink Sol LLC | Professional Truck Dispatch Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap');
+        
+        :root {
+            --primary: #0f172a;
+            --accent: #f97316;
+        }
+        
+        .tail-container {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)), url('https://picsum.photos/id/1015/2000/1200');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .nav-scrolled {
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+        }
+
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        }
+
+        .stat-number {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .timeline-line {
+            background: linear-gradient(to bottom, #f97316, #fb923c);
+        }
+
+        .form-input {
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.3);
+        }
+    </style>
+</head>
+<body class="tail-container bg-slate-950 text-slate-200 overflow-x-hidden">
+    <!-- NAVBAR -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-5">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+            <div class="flex items-center gap-x-3">
+                <div class="w-10 h-10 bg-orange-500 rounded-xl flex items-center justify-center text-white font-bold text-2xl">T</div>
+                <div>
+                    <span class="heading-font text-2xl font-semibold tracking-tight">Teklink</span>
+                    <span class="text-slate-400 text-sm block -mt-1">Sol LLC</span>
+                </div>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                <a href="#services" onclick="smoothScrollTo('services')" class="hover:text-orange-400 transition-colors">Services</a>
+                <a href="#why-us" onclick="smoothScrollTo('why-us')" class="hover:text-orange-400 transition-colors">Why Us</a>
+                <a href="#how-it-works" onclick="smoothScrollTo('how-it-works')" class="hover:text-orange-400 transition-colors">How It Works</a>
+                <a href="#testimonials" onclick="smoothScrollTo('testimonials')" class="hover:text-orange-400 transition-colors">Testimonials</a>
+                <a href="#pricing" onclick="smoothScrollTo('pricing')" class="hover:text-orange-400 transition-colors">Pricing</a>
+            </div>
+            
+            <div class="flex items-center gap-x-4">
+                <button onclick="showContactModal()" 
+                        class="hidden md:block px-6 py-2.5 bg-white text-slate-900 font-semibold rounded-2xl hover:bg-orange-500 hover:text-white transition-all duration-300">
+                    Get a Quote
+                </button>
+                <button onclick="toggleMobileMenu()" 
+                        class="md:hidden w-11 h-11 flex items-center justify-center text-2xl">
+                    <i class="fa-solid fa-bars" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-slate-950 z-40 pt-20 px-6">
+            <div class="flex flex-col gap-y-6 text-lg font-medium">
+                <a href="#services" onclick="toggleMobileMenu()" class="hover:text-orange-400">Services</a>
+                <a href="#why-us" onclick="toggleMobileMenu()" class="hover:text-orange-400">Why Us</a>
+                <a href="#how-it-works" onclick="toggleMobileMenu()" class="hover:text-orange-400">How It Works</a>
+                <a href="#testimonials" onclick="toggleMobileMenu()" class="hover:text-orange-400">Testimonials</a>
+                <a href="#pricing" onclick="toggleMobileMenu()" class="hover:text-orange-400">Pricing</a>
+                <button onclick="toggleMobileMenu();showContactModal()" 
+                        class="mt-6 w-full bg-orange-500 hover:bg-orange-600 py-4 rounded-3xl font-semibold text-lg">
+                    Get a Free Quote
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="hero" class="hero-bg min-h-screen flex items-center relative">
+        <div class="max-w-7xl mx-auto px-6 pt-20 md:pt-0">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-x-2 bg-white/10 backdrop-blur-md px-5 py-2 rounded-3xl text-sm mb-6">
+                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                    24/7 Dispatch Operations
+                </div>
+                
+                <h1 class="heading-font text-6xl md:text-7xl font-bold leading-none tracking-tighter mb-6">
+                    RELIABLE TRUCK<br>DISPATCH THAT <span class="text-orange-400">DELIVERS</span>
+                </h1>
+                
+                <p class="text-xl text-slate-300 max-w-md mb-10">
+                    Professional load management, rate negotiation, and fleet support for owner-operators and small fleets. Maximize your revenue with zero hassle.
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="showContactModal()" 
+                            class="px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-3xl text-lg transition-all duration-300 flex items-center gap-x-3 group">
+                        GET STARTED TODAY
+                        <i class="fa-solid fa-arrow-right group-active:translate-x-1 transition"></i>
+                    </button>
+                    
+                    <a href="#how-it-works" 
+                       onclick="smoothScrollTo('how-it-works')"
+                       class="px-8 py-4 border border-white/30 hover:border-white/70 font-semibold rounded-3xl text-lg transition-all flex items-center">
+                        Learn How It Works
+                    </a>
+                </div>
+                
+                <div class="flex items-center gap-x-8 mt-16 text-sm">
+                    <div class="flex items-center gap-x-2">
+                        <i class="fa-solid fa-check text-emerald-400"></i>
+                        <span>No Upfront Fees</span>
+                    </div>
+                    <div class="flex items-center gap-x-2">
+                        <i class="fa-solid fa-check text-emerald-400"></i>
+                        <span>98% On-Time Delivery</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Floating truck icon -->
+        <div class="absolute bottom-12 right-12 hidden lg:flex items-center gap-x-3 bg-slate-900/70 backdrop-blur-xl px-6 py-3 rounded-3xl border border-white/10">
+            <div class="text-4xl">🚛</div>
+            <div>
+                <div class="text-xs tracking-widest text-orange-400">CURRENTLY HAULING</div>
+                <div class="font-mono text-sm">142 loads this month</div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 flex flex-col items-center gap-y-2 text-xs tracking-widest">
+            <div class="animate-bounce">↓</div>
+            SCROLL TO EXPLORE
+        </div>
+    </header>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-24 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="px-4 py-2 bg-slate-800 rounded-full text-orange-400 text-sm font-medium">OUR EXPERTISE</span>
+                <h2 class="heading-font text-5xl font-bold mt-4">Comprehensive Dispatch Solutions</h2>
+                <p class="max-w-md mx-auto mt-4 text-slate-400">End-to-end support to keep your trucks moving profitably</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Cards -->
+                <div class="service-card bg-slate-800 border border-slate-700 rounded-3xl p-8 group">
+                    <div class="w-14 h-14 bg-orange-500/10 rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform">📍</div>
+                    <h3 class="text-2xl font-semibold mb-3">Dispatch Services</h3>
+                    <p class="text-slate-400">Real-time load finding, route optimization, and constant communication with shippers and receivers.</p>
+                    <div class="mt-8 text-xs uppercase tracking-widest text-orange-400 font-medium">Core Service</div>
+                </div>
+                
+                <div class="service-card bg-slate-800 border border-slate-700 rounded-3xl p-8 group">
+                    <div class="w-14 h-14 bg-orange-500/10 rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform">📦</div>
+                    <h3 class="text-2xl font-semibold mb-3">Load Booking</h3>
+                    <p class="text-slate-400">Access to high-paying loads from top brokers. We negotiate the best rates for your equipment type.</p>
+                </div>
+                
+                <div class="service-card bg-slate-800 border border-slate-700 rounded-3xl p-8 group">
+                    <div class="w-14 h-14 bg-orange-500/10 rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform">💰</div>
+                    <h3 class="text-2xl font-semibold mb-3">Rate Negotiation</h3>
+                    <p class="text-slate-400">Expert negotiators work to secure the highest possible rates while maintaining strong carrier relationships.</p>
+                </div>
+                
+                <div class="service-card bg-slate-800 border border-slate-700 rounded-3xl p-8 group">
+                    <div class="w-14 h-14 bg-orange-500/10 rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform">📄</div>
+                    <h3 class="text-2xl font-semibold mb-3">Paperwork &amp; Invoicing</h3>
+                    <p class="text-slate-400">We handle all paperwork, rate confirmations, PODs, and ensure fast payment processing.</p>
+                </div>
+                
+                <div class="service-card bg-slate-800 border border-slate-700 rounded-3xl p-8 group">
+                    <div class="w-14 h-14 bg-orange-500/10 rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform">📡</div>
+                    <h3 class="text-2xl font-semibold mb-3">Fleet Tracking</h3>
+                    <p class="text-slate-400">Live GPS monitoring, ELD compliance assistance, and performance reporting for your fleet.</p>
+                </div>
+                
+                <div class="service-card bg-slate-800 border border-slate-700 rounded-3xl p-8 group">
+                    <div class="w-14 h-14 bg-orange-500/10 rounded-2xl flex items-center justify-center text-3xl mb-8 group-hover:scale-110 transition-transform">🛟</div>
+                    <h3 class="text-2xl font-semibold mb-3">24/7 Support</h3>
+                    <p class="text-slate-400">Dedicated dispatchers available around the clock. Never miss a load opportunity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="why-us" class="py-24 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-5">
+                    <h2 class="heading-font text-5xl font-bold leading-tight">Why owner-operators trust Teklink Sol</h2>
+                    <div class="mt-10 space-y-8">
+                        <div class="flex gap-x-6">
+                            <div class="text-5xl font-bold text-orange-400">01</div>
+                            <div>
+                                <div class="font-semibold text-xl">Dedicated Dispatcher</div>
+                                <p class="text-slate-400">One consistent point of contact who knows your truck, preferences, and goals.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-x-6">
+                            <div class="text-5xl font-bold text-orange-400">02</div>
+                            <div>
+                                <div class="font-semibold text-xl">Higher RPMs</div>
+                                <p class="text-slate-400">Average 15-25% increase in revenue per mile through strategic load selection.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-x-6">
+                            <div class="text-5xl font-bold text-orange-400">03</div>
+                            <div>
+                                <div class="font-semibold text-xl">Zero Upfront Cost</div>
+                                <p class="text-slate-400">You only pay when you haul. Transparent 8-12% dispatch fee.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stats -->
+                <div class="lg:col-span-7 grid grid-cols-2 gap-8">
+                    <div class="bg-slate-900 border border-slate-700 rounded-3xl p-10 text-center">
+                        <div id="stat-loads" class="stat-number text-7xl font-bold text-white mb-2">500</div>
+                        <div class="uppercase text-xs tracking-widest">Loads Dispatched</div>
+                        <div class="h-1.5 bg-gradient-to-r from-orange-400 to-amber-400 w-16 mx-auto mt-8 rounded"></div>
+                    </div>
+                    <div class="bg-slate-900 border border-slate-700 rounded-3xl p-10 text-center">
+                        <div id="stat-delivery" class="stat-number text-7xl font-bold text-white mb-2">98</div>
+                        <div class="uppercase text-xs tracking-widest">% On-Time Delivery</div>
+                        <div class="h-1.5 bg-gradient-to-r from-orange-400 to-amber-400 w-16 mx-auto mt-8 rounded"></div>
+                    </div>
+                    <div class="bg-slate-900 border border-slate-700 rounded-3xl p-10 text-center col-span-2 md:col-span-1">
+                        <div id="stat-rpm" class="stat-number text-7xl font-bold text-white mb-2">28</div>
+                        <div class="uppercase text-xs tracking-widest">% Avg RPM Increase</div>
+                        <div class="h-1.5 bg-gradient-to-r from-orange-400 to-amber-400 w-16 mx-auto mt-8 rounded"></div>
+                    </div>
+                    <div class="bg-slate-900 border border-slate-700 rounded-3xl p-10 text-center">
+                        <div class="text-7xl font-bold text-white mb-2">24</div>
+                        <div class="uppercase text-xs tracking-widest">Hour Support</div>
+                        <div class="h-1.5 bg-gradient-to-r from-orange-400 to-amber-400 w-16 mx-auto mt-8 rounded"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="py-24 bg-slate-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-orange-400 font-medium">SIMPLE PROCESS</span>
+                <h2 class="heading-font text-5xl font-bold mt-3">From Application to First Load in 48 Hours</h2>
+            </div>
+            
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="absolute left-1/2 top-12 bottom-12 w-0.5 bg-gradient-to-b from-orange-500 to-transparent hidden md:block"></div>
+                
+                <div class="grid md:grid-cols-4 gap-12 relative">
+                    <div class="text-center md:text-left group">
+                        <div class="w-12 h-12 mx-auto md:mx-0 bg-orange-500 text-white rounded-2xl flex items-center justify-center text-2xl font-bold mb-6">1</div>
+                        <h4 class="font-semibold text-xl mb-3">Sign Up</h4>
+                        <p class="text-slate-400">Quick online application. Share your MC/DOT info and equipment details.</p>
+                    </div>
+                    <div class="text-center md:text-left group">
+                        <div class="w-12 h-12 mx-auto md:mx-0 bg-orange-500 text-white rounded-2xl flex items-center justify-center text-2xl font-bold mb-6">2</div>
+                        <h4 class="font-semibold text-xl mb-3">Get Matched</h4>
+                        <p class="text-slate-400">We assign you a dedicated dispatcher who understands your operation.</p>
+                    </div>
+                    <div class="text-center md:text-left group">
+                        <div class="w-12 h-12 mx-auto md:mx-0 bg-orange-500 text-white rounded-2xl flex items-center justify-center text-2xl font-bold mb-6">3</div>
+                        <h4 class="font-semibold text-xl mb-3">Start Hauling</h4>
+                        <p class="text-slate-400">Receive high-quality loads daily. We handle all coordination.</p>
+                    </div>
+                    <div class="text-center md:text-left group">
+                        <div class="w-12 h-12 mx-auto md:mx-0 bg-orange-500 text-white rounded-2xl flex items-center justify-center text-2xl font-bold mb-6">4</div>
+                        <h4 class="font-semibold text-xl mb-3">Get Paid Fast</h4>
+                        <p class="text-slate-400">Quick invoicing and payment follow-up. Most carriers paid within 14-21 days.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="py-24 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <span class="text-orange-400">DON'T JUST TAKE OUR WORD</span>
+                    <h2 class="heading-font text-5xl font-bold">What our carriers say</h2>
+                </div>
+                <div class="hidden md:flex gap-x-3">
+                    <button onclick="prevSlide()" class="w-12 h-12 border border-slate-700 hover:border-orange-400 rounded-2xl flex items-center justify-center transition-colors"><i class="fa-solid fa-arrow-left"></i></button>
+                    <button onclick="nextSlide()" class="w-12 h-12 border border-slate-700 hover:border-orange-400 rounded-2xl flex items-center justify-center transition-colors"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+            
+            <div id="testimonial-slider" class="flex gap-8 overflow-hidden">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="py-24 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="heading-font text-5xl font-bold">Transparent Pricing</h2>
+                <p class="mt-4 text-slate-400">You only pay when you make money</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Basic -->
+                <div class="bg-slate-800 rounded-3xl p-8 border border-slate-700">
+                    <div class="uppercase text-xs tracking-widest">Starter</div>
+                    <div class="text-6xl font-bold mt-4 mb-8">$<span class="text-4xl">8</span><span class="text-xl text-slate-400">%</span></div>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-400"></i> Load finding &amp; booking</li>
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-400"></i> Basic paperwork</li>
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-400"></i> Email support</li>
+                    </ul>
+                    <button onclick="showContactModal()" class="mt-12 w-full py-6 bg-white text-slate-900 font-semibold rounded-3xl">Start Free Trial</button>
+                </div>
+                
+                <!-- Recommended -->
+                <div class="bg-gradient-to-b from-slate-800 to-slate-900 border border-orange-400 rounded-3xl p-8 relative scale-105 shadow-2xl">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-xs font-bold px-6 py-1 rounded-3xl">MOST POPULAR</div>
+                    <div class="uppercase text-xs tracking-widest text-orange-400">Professional</div>
+                    <div class="text-6xl font-bold mt-4 mb-8">$<span class="text-4xl">10</span><span class="text-xl text-slate-400">%</span></div>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-400"></i> Dedicated dispatcher</li>
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-400"></i> Full paperwork &amp; invoicing</li>
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-400"></i> Rate negotiation</li>
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-400"></i> 24/7 phone support</li>
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-400"></i> Fleet tracking reports</li>
+                    </ul>
+                    <button onclick="showContactModal()" class="mt-12 w-full py-6 bg-orange-500 hover:bg-orange-600 font-semibold rounded-3xl">Get Started</button>
+                </div>
+                
+                <!-- Enterprise -->
+                <div class="bg-slate-800 rounded-3xl p-8 border border-slate-700">
+                    <div class="uppercase text-xs tracking-widest">Fleet</div>
+                    <div class="text-6xl font-bold mt-4 mb-8">Custom</div>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-400"></i> Multiple trucks</li>
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-400"></i> Priority load access</li>
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-400"></i> Custom reporting</li>
+                        <li class="flex items-center gap-x-3"><i class="fa-solid fa-check text-emerald-400"></i> Onboarding team</li>
+                    </ul>
+                    <button onclick="showContactModal()" class="mt-12 w-full py-6 border border-slate-400 font-semibold rounded-3xl">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="py-24 bg-slate-950">
+        <div class="max-w-2xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="heading-font text-5xl font-bold">Ready to Increase Your Revenue?</h2>
+                <p class="mt-4 text-slate-400">Fill out the form and our team will contact you within 1 hour.</p>
+            </div>
+            
+            <form id="contact-form" onsubmit="handleSubmit(event)" class="space-y-8">
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest mb-2">Full Name</label>
+                        <input id="name" type="text" required 
+                               class="form-input w-full bg-slate-900 border border-slate-700 focus:border-orange-400 rounded-3xl px-6 py-5 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest mb-2">Phone</label>
+                        <input id="phone" type="tel" required 
+                               class="form-input w-full bg-slate-900 border border-slate-700 focus:border-orange-400 rounded-3xl px-6 py-5 outline-none">
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-xs uppercase tracking-widest mb-2">Email Address</label>
+                    <input id="email" type="email" required 
+                           class="form-input w-full bg-slate-900 border border-slate-700 focus:border-orange-400 rounded-3xl px-6 py-5 outline-none">
+                </div>
+                
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest mb-2">MC Number</label>
+                        <input id="mc" type="text" 
+                               class="form-input w-full bg-slate-900 border border-slate-700 focus:border-orange-400 rounded-3xl px-6 py-5 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest mb-2">Equipment Type</label>
+                        <select id="equipment" class="form-input w-full bg-slate-900 border border-slate-700 focus:border-orange-400 rounded-3xl px-6 py-5 outline-none">
+                            <option value="">Select...</option>
+                            <option value="dry">Dry Van</option>
+                            <option value="reefer">Reefer</option>
+                            <option value="flat">Flatbed</option>
+                            <option value="step">Step Deck</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-xs uppercase tracking-widest mb-2">Message / Questions</label>
+                    <textarea id="message" rows="5" 
+                              class="form-input w-full bg-slate-900 border border-slate-700 focus:border-orange-400 rounded-3xl px-6 py-5 outline-none"></textarea>
+                </div>
+                
+                <button type="submit"
+                        class="w-full py-6 bg-orange-500 hover:bg-orange-600 font-semibold text-lg rounded-3xl transition-all active:scale-95">
+                    SUBMIT APPLICATION
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-20">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-y-12">
+            <div class="md:col-span-5">
+                <div class="flex items-center gap-x-3 mb-6">
+                    <div class="w-9 h-9 bg-orange-500 rounded-2xl flex items-center justify-center text-white font-bold">T</div>
+                    <span class="heading-font text-3xl font-semibold">Teklink Sol LLC</span>
+                </div>
+                <p class="text-slate-400 max-w-xs">Professional truck dispatch services helping carriers across the United States maximize profitability.</p>
+                
+                <div class="mt-10 flex gap-x-6 text-2xl">
+                    <a href="#" class="hover:text-orange-400 transition"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-orange-400 transition"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+            
+            <div class="md:col-span-2">
+                <div class="font-medium mb-6">Company</div>
+                <div class="space-y-4 text-sm text-slate-400">
+                    <div>About Us</div>
+                    <div>Careers</div>
+                    <div>Contact</div>
+                </div>
+            </div>
+            
+            <div class="md:col-span-2">
+                <div class="font-medium mb-6">Resources</div>
+                <div class="space-y-4 text-sm text-slate-400">
+                    <div>Blog</div>
+                    <div>Load Board Tips</div>
+                    <div>Carrier FAQ</div>
+                </div>
+            </div>
+            
+            <div class="md:col-span-3">
+                <div class="font-medium mb-6">Get in Touch</div>
+                <div class="text-slate-400">
+                    <a href="tel:8005551234" class="block hover:text-white">(800) 555-1234</a>
+                    <a href="mailto:dispatch@teklinksol.com" class="block hover:text-white">dispatch@teklinksol.com</a>
+                </div>
+                <div class="mt-8 text-xs text-slate-500">
+                    © 2026 Teklink Sol LLC. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CONTACT MODAL -->
+    <div id="contact-modal" class="hidden fixed inset-0 bg-black/70 z-[100] flex items-center justify-center">
+        <div class="bg-slate-900 rounded-3xl max-w-lg w-full mx-4 overflow-hidden">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-8">
+                    <h3 class="text-2xl font-semibold">Get Your Free Quote</h3>
+                    <button onclick="hideContactModal()" class="text-3xl leading-none">&times;</button>
+                </div>
+                <form id="modal-form" onsubmit="handleModalSubmit(event)" class="space-y-6">
+                    <!-- Same fields as main form, abbreviated for modal -->
+                    <input id="modal-name" type="text" placeholder="Full Name" required class="form-input w-full bg-slate-800 border border-slate-700 rounded-3xl px-6 py-5">
+                    <input id="modal-phone" type="tel" placeholder="Phone Number" required class="form-input w-full bg-slate-800 border border-slate-700 rounded-3xl px-6 py-5">
+                    <input id="modal-email" type="email" placeholder="Email" required class="form-input w-full bg-slate-800 border border-slate-700 rounded-3xl px-6 py-5">
+                    <textarea id="modal-message" rows="4" placeholder="Tell us about your operation..." class="form-input w-full bg-slate-800 border border-slate-700 rounded-3xl px-6 py-5"></textarea>
+                    
+                    <button type="submit" class="w-full py-6 bg-orange-500 font-semibold rounded-3xl">SEND MESSAGE</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tailwind script already loaded
+        
+        function initTailwind() {
+            // Any custom config if needed
+        }
+        
+        // Navbar scroll effect
+        function handleNavbarScroll() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 80) {
+                navbar.classList.add('nav-scrolled', 'shadow-2xl');
+            } else {
+                navbar.classList.remove('nav-scrolled', 'shadow-2xl');
+            }
+        }
+        
+        // Mobile menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('hidden');
+            
+            if (!menu.classList.contains('hidden')) {
+                icon.classList.replace('fa-bars', 'fa-xmark');
+            } else {
+                icon.classList.replace('fa-xmark', 'fa-bars');
+            }
+        }
+        
+        // Smooth scroll
+        function smoothScrollTo(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                const navHeight = 80;
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.scrollY - navHeight;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        // Animated counters
+        function animateValue(id, start, end, duration) {
+            const obj = document.getElementById(id);
+            if (!obj) return;
+            
+            const range = end - start;
+            let startTimestamp = null;
+            
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const value = Math.floor(progress * range + start);
+                obj.innerHTML = value + (id.includes('delivery') ? '%' : '');
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    obj.innerHTML = end + (id.includes('delivery') ? '%' : '');
+                }
+            };
+            
+            window.requestAnimationFrame(step);
+        }
+        
+        // Trigger stats when in view
+        function triggerStats() {
+            const statsSection = document.getElementById('why-us');
+            if (!statsSection) return;
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateValue('stat-loads', 120, 500, 1800);
+                        animateValue('stat-delivery', 75, 98, 1600);
+                        animateValue('stat-rpm', 12, 28, 1700);
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.6 });
+            
+            observer.observe(statsSection);
+        }
+        
+        // Testimonial data
+        const testimonials = [
+            {
+                name: "Marcus T.",
+                role: "Owner-Operator, Dry Van",
+                quote: "Teklink doubled my revenue in the first month. My dispatcher is always on top of the best loads.",
+                rating: 5
+            },
+            {
+                name: "Elena Rodriguez",
+                role: "Fleet Owner",
+                quote: "The team handles all paperwork perfectly. I finally have time to focus on growing my business instead of chasing brokers.",
+                rating: 5
+            },
+            {
+                name: "Jamal Washington",
+                role: "Reefer Operator",
+                quote: "Best decision I made this year. Consistent high-paying loads and 24/7 support when I need it.",
+                rating: 5
+            }
+        ];
+        
+        let currentSlide = 0;
+        
+        function renderTestimonials() {
+            const container = document.getElementById('testimonial-slider');
+            container.innerHTML = '';
+            
+            testimonials.forEach((t, index) => {
+                const div = document.createElement('div');
+                div.className = `min-w-full md:min-w-[380px] bg-slate-900 border border-slate-700 rounded-3xl p-8 transition-all ${index === currentSlide ? 'scale-100' : 'scale-95 opacity-70'}`;
+                div.innerHTML = `
+                    <div class="flex gap-x-1 mb-6 text-amber-400">
+                        ${Array(5).fill(0).map((_, i) => `<i class="fa-solid fa-star ${i < t.rating ? 'text-amber-400' : 'text-slate-600'}"></i>`).join('')}
+                    </div>
+                    <p class="text-lg italic mb-8">"${t.quote}"</p>
+                    <div>
+                        <div class="font-semibold">${t.name}</div>
+                        <div class="text-xs text-slate-400">${t.role}</div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % testimonials.length;
+            renderTestimonials();
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + testimonials.length) % testimonials.length;
+            renderTestimonials();
+        }
+        
+        // Form handling
+        function handleSubmit(e) {
+            e.preventDefault();
+            const form = document.getElementById('contact-form');
+            
+            // Simulate submission
+            const btn = form.querySelector('button');
+            const originalText = btn.textContent;
+            btn.textContent = 'SUBMITTING...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                alert("✅ Application received! Our team will contact you shortly.");
+                form.reset();
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }, 1200);
+        }
+        
+        function handleModalSubmit(e) {
+            e.preventDefault();
+            const modal = document.getElementById('contact-modal');
+            
+            setTimeout(() => {
+                alert("✅ Thank you! We'll get back to you within the hour.");
+                modal.classList.add('hidden');
+                document.getElementById('modal-form').reset();
+            }, 800);
+        }
+        
+        function showContactModal() {
+            document.getElementById('contact-modal').classList.remove('hidden');
+            document.getElementById('modal-name').focus();
+        }
+        
+        function hideContactModal() {
+            document.getElementById('contact-modal').classList.add('hidden');
+        }
+        
+        // Keyboard ESC for modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") {
+                const modal = document.getElementById('contact-modal');
+                if (!modal.classList.contains('hidden')) hideContactModal();
+            }
+        });
+        
+        // Initialize everything
+        function initialize() {
+            initTailwind();
+            window.addEventListener('scroll', handleNavbarScroll);
+            
+            // Render testimonials
+            renderTestimonials();
+            
+            // Auto rotate testimonials
+            setInterval(() => {
+                nextSlide();
+            }, 6000);
+            
+            // Trigger stats
+            triggerStats();
+            
+            // Make sure mobile menu is closed on resize
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+            
+            console.log('%c✅ Teklink Sol LLC website initialized successfully', 'color: #f97316; font-family: monospace');
+        }
+        
+        // Run initialization
+        window.onload = initialize;
+    </script>
+</body>
+</html>
